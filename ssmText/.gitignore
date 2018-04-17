@@ -96,6 +96,7 @@ local.properties
 ## .gitignore for linux
 .*
 !.gitignore
+!.gitattributes
 *~
 
 ## .gitignore for windows
