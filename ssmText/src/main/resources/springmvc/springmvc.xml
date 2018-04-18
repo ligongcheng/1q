@@ -9,15 +9,15 @@
 
 
 	<!-- 配置注解驱动 -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven conversion-service="dateConvertService" />
 	
-	<!-- <bean id="convertService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+	<bean id="dateConvertService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 	   <property name="converters">
 	       <set>
-	           <bean class="cn.it.common.DataConvert"></bean>
+	           <bean class="cn.it.common.DateConvert"></bean>
 	       </set>
 	   </property>
-	</bean> -->
+	</bean>
 	
 	<!-- 资源处理映射 -->
 	<mvc:resources location="/js/" mapping="/js/**"/>

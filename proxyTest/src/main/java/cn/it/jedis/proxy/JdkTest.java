@@ -5,10 +5,7 @@ import org.junit.Test;
 public class JdkTest {
 
 	public static void main(String[] args) {
-		JdkProxy2 jdkProxy2 = new JdkProxy2();
-		UserDao userDao = new UserDaoImpl();
-		UserDao proxy = (UserDao) jdkProxy2.getProxy(userDao);
-		System.out.println(proxy);
+		UserDao proxy = (UserDao) new JdkProxy2().getProxy(new UserDaoImpl());
 		proxy.add();
 
 	}

@@ -8,6 +8,7 @@ import net.sf.cglib.proxy.MethodProxy;
 
 public class CglibProxy implements MethodInterceptor {
 
+
 	public Object getProxy(Class clazz) {
 		Enhancer enhancer = new Enhancer();
 		enhancer.setSuperclass(clazz);
