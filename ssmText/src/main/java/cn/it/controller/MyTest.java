@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -53,7 +54,7 @@ public class MyTest {
 	}
 	@RequestMapping("/first3")
 	@ResponseBody
-	public PageResult first3(PageSource ps) {
+	public PageResult first3(@RequestBody PageSource ps) {
 		System.out.println(ps.getPage() +"----"+ps.getRows());
 		TbItemExample example = new TbItemExample();
 		PageHelper.startPage(ps.getPage().intValue(), ps.getRows());
