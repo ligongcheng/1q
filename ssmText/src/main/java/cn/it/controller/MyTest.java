@@ -15,6 +15,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import cn.it.common.PageResult;
+import cn.it.common.PageSource;
 import cn.it.pojo.TbItem;
 import cn.it.pojo.TbItemExample;
 import cn.it.service.ItemService;
@@ -40,8 +41,22 @@ public class MyTest {
 	@ResponseBody
 	public PageResult first2(@RequestParam(defaultValue = "1") Integer page,
 			@RequestParam(defaultValue = "50") Integer rows) {
+		System.out.println(page +"----"+rows);
 		TbItemExample example = new TbItemExample();
 		PageHelper.startPage(page.intValue(), rows.intValue());
+		List<TbItem> list = this.itemService.selectByExample(example);
+		PageInfo<TbItem> pageInfo = new PageInfo<>(list);
+		PageResult pageResult = new PageResult();
+		pageResult.setTotal(pageInfo.getTotal());
+		pageResult.setRows(pageInfo.getList());
+		return pageResult;
+	}
+	@RequestMapping("/first3")
+	@ResponseBody
+	public PageResult first3(PageSource ps) {
+		System.out.println(ps.getPage() +"----"+ps.getRows());
+		TbItemExample example = new TbItemExample();
+		PageHelper.startPage(ps.getPage().intValue(), ps.getRows());
 		List<TbItem> list = this.itemService.selectByExample(example);
 		PageInfo<TbItem> pageInfo = new PageInfo<>(list);
 		PageResult pageResult = new PageResult();

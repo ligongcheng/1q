@@ -22,4 +22,6 @@ public class PageResult {
 	public void setRows(List rows) {
 		this.rows = rows;
 	}
+
+	
 }
