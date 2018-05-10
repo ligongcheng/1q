@@ -23,7 +23,7 @@ import cn.it.service.ItemService;
 
 @Controller
 public class MyTest {
-
+	//changesomething dsdsdsdsdds
 	@Autowired
 	private ItemService itemService;
 
@@ -31,7 +31,7 @@ public class MyTest {
 	public String first1(Model model, @RequestParam(defaultValue = "1") Integer page,
 			@RequestParam(defaultValue = "50") Integer rows, HttpServletRequest request) {
 		TbItemExample example = new TbItemExample();
-		PageHelper.startPage(page.intValue(), rows.intValue());
+		PageHelper.startPage(page, rows);
 		List list = this.itemService.selectByExample(example);
 		System.out.println(request.getQueryString());
 		model.addAttribute("itemList", list);
@@ -44,7 +44,7 @@ public class MyTest {
 			@RequestParam(defaultValue = "50") Integer rows) {
 		System.out.println(page +"----"+rows);
 		TbItemExample example = new TbItemExample();
-		PageHelper.startPage(page.intValue(), rows.intValue());
+		PageHelper.startPage(page, rows);
 		List<TbItem> list = this.itemService.selectByExample(example);
 		PageInfo<TbItem> pageInfo = new PageInfo<>(list);
 		PageResult pageResult = new PageResult();
@@ -57,7 +57,7 @@ public class MyTest {
 	public PageResult first3(@RequestBody PageSource ps) {
 		System.out.println(ps.getPage() +"----"+ps.getRows());
 		TbItemExample example = new TbItemExample();
-		PageHelper.startPage(ps.getPage().intValue(), ps.getRows());
+		PageHelper.startPage(ps.getPage(), ps.getRows());
 		List<TbItem> list = this.itemService.selectByExample(example);
 		PageInfo<TbItem> pageInfo = new PageInfo<>(list);
 		PageResult pageResult = new PageResult();
