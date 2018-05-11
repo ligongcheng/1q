@@ -1,4 +1,4 @@
-package cn.it.jedis.proxy;
+package cn.it.study.proxy;
 
 public class CgTest {
 

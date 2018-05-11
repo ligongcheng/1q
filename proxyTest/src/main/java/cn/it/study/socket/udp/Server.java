@@ -1,4 +1,4 @@
-package cn.it.jedis.socket.udp;
+package cn.it.study.socket.udp;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

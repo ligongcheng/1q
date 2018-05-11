@@ -1,4 +1,4 @@
-package cn.it.jedis.proxy;
+package cn.it.study.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

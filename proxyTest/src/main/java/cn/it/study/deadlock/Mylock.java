@@ -1,4 +1,4 @@
-package cn.it.jedis.deadlock;
+package cn.it.study.deadlock;
 
 public class Mylock {
 
